@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Models Test</title>
+    <link rel="stylesheet" href="{% static "first_app/files/main.css" %}"/>
+</head>
+<body>
+    <h1>Hi, welcome to django level two</h1>
+    <h2>Here are your access records</h2>
+
+    <div class="djtwo">
+        {% if userinfo %} 
+            <table>
+                <thead>
+                <th>User Name</th>
+                <th>User Email</th>
+                </thead>
+
+                {% for person in userinfo %}
+                    <tr>
+                        <td>{{ person.first }} {{ person.last }}</td>
+                        <td>{{ person.email }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No users found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
