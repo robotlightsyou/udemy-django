@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Topic, Webpage, AccessRecord
+from .models import Topic, Webpage, AccessRecord, User
 
 
 def index(request):
@@ -10,3 +10,8 @@ def index(request):
 def help(request):
     temps = {'help': 'Help Page'}
     return render(request, 'first_app/help.html', context=temps)
+
+def users(request):
+    user_list = User.objects.order_by('first')
+    user_dict = {'userinfo': user_list}
+    return render(request, 'first_app/user.html', context=user_dict)
