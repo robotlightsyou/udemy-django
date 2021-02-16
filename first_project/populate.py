@@ -1,3 +1,5 @@
+""" This script populates the Topic, Webpage, and Access_Records models of section two of udemy-django. """
+
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project.settings')
 

@@ -13,12 +13,6 @@
 
     <div class="djtwo">
         {% if userinfo %} 
-            {% comment %} <table>
-                <thead>
-                <th>User Name</th>
-                <th>User Email</th>
-                </thead> {% endcomment %}
-
                 <ol>
                 {% for person in userinfo %}
                     <li>{{ person }}
@@ -28,13 +22,8 @@
                         <li>Email: {{ person.email }}</li>
                     </ul>
                     </li>
-                    {% comment %} <tr>
-                        <td>{{ person.first }} {{ person.last }}</td>
-                        <td>{{ person.email }}</td>
-                    </tr> {% endcomment %}
                 {% endfor %}
                 </ol>
-            {% comment %} </table> {% endcomment %}
         {% else %}
             <p>No users found.</p>
         {% endif %}
