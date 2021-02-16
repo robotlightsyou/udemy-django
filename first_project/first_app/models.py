@@ -7,7 +7,7 @@ class Topic(models.Model):
         return self.top_name
 
 class Webpage(models.Model):
-    topic =models.ForeignKey(Topic, on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     name = models.CharField(max_length=264, unique=True)
     url = models.URLField(unique=True)
 
@@ -21,4 +21,10 @@ class AccessRecord(models.Model):
     def __str__(self):
         return str(self.date)
     
-    
+class User(models.Model):
+    first = models.CharField(max_length=128)
+    last = models.CharField(max_length=128)
+    email = models.EmailField()    
+
+    def __str__(self):
+        return self.first + " " + self.last
