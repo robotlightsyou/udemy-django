@@ -4,10 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat page</title>
+    <title>Models Test</title>
+    <link rel="stylesheet" href="{% static "first_app/files/main.css" %}"/>
 </head>
 <body>
-    <h1>This is a picture of a cat</h1>
-    <img src="{% static "images/first_app/cat.JPG" %}" alt="image could not load">
+    <h1>Hi, welcome to django level two</h1>
+    <h2>Here are your access records</h2>
+
+    <div class="djtwo">
+        {% if access_records %} 
+            <table>
+                <thead>
+                <th>Site Name</th>
+                <th>Date Accessed</th>
+                </thead>
+
+                {% for acc in access_records %}
+                    <tr>
+                        <td>{{ acc.name }}</td>
+                        <td>{{ acc.date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No access records found.</p>
+        {% endif %}
+    </div>
 </body>
 </html>
