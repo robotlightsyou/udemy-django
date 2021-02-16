@@ -1,3 +1,4 @@
+""" This script populates the User model of sectiontwo of udemy-django. """
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project.settings')
 
