@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Models Test</title>
+    <title>Users Test</title>
     <link rel="stylesheet" href="{% static "first_app/files/main.css" %}"/>
 </head>
 <body>
@@ -13,19 +13,28 @@
 
     <div class="djtwo">
         {% if userinfo %} 
-            <table>
+            {% comment %} <table>
                 <thead>
                 <th>User Name</th>
                 <th>User Email</th>
-                </thead>
+                </thead> {% endcomment %}
 
+                <ol>
                 {% for person in userinfo %}
-                    <tr>
+                    <li>{{ person }}
+                    <ul>
+                        <li>First: {{ person.first }}</li>
+                        <li>Last: {{ person.last }}</li>
+                        <li>Email: {{ person.email }}</li>
+                    </ul>
+                    </li>
+                    {% comment %} <tr>
                         <td>{{ person.first }} {{ person.last }}</td>
                         <td>{{ person.email }}</td>
-                    </tr>
+                    </tr> {% endcomment %}
                 {% endfor %}
-            </table>
+                </ol>
+            {% comment %} </table> {% endcomment %}
         {% else %}
             <p>No users found.</p>
         {% endif %}
