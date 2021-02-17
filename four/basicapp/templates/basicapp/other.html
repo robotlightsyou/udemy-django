@@ -1,0 +1,12 @@
+{% extends 'basicapp/base.html' %}
+
+{% block title %}
+    <title>some other page</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>This is some other page</h1>
+    <a href="{% url 'index' %}">
+        <h2>"Return Home"</h2>
+    </a>
+{% endblock content%}
