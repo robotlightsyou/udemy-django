@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import Topic, Webpage, AccessRecord, User
-from forms import FormName
+from .models import Topic, Webpage, AccessRecord#, #User
+from .forms import FormName
+# from first_app.forms import FormName
 
 def index(request):
     webpages_list = AccessRecord.objects.order_by('date')
@@ -12,10 +13,20 @@ def help(request):
     return render(request, 'first_app/help.html', context=temps)
 
 def users(request):
-    user_list = User.objects.order_by('first')
-    user_dict = {'userinfo': user_list}
-    return render(request, 'first_app/user.html', context=user_dict)
+    form = FormName()
 
-def form_name_view(request):
-    form = forms.FormName()
-    return render(request, 'first_app/form.html', context={'form': form})
+    if request.method == 'POST':
+        form = FormName(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print("error: invalid")
+
+    return render(request, 'first_app/user.html', {'form': form})
+
+
+# def form_name_view(request):
+#     form = here.FormName()
+#     return render(request, 'first_app/form_page.html', context={'form': form})
