@@ -6,27 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users Test</title>
     <link rel="stylesheet" href="{% static "first_app/files/main.css" %}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
 </head>
 <body>
-    <h1>Hi, welcome to django level two</h1>
-    <h2>Here are your access records</h2>
-
-    <div class="djtwo">
-        {% if userinfo %} 
-                <ol>
-                {% for person in userinfo %}
-                    <li>{{ person }}
-                    <ul>
-                        <li>First: {{ person.first }}</li>
-                        <li>Last: {{ person.last }}</li>
-                        <li>Email: {{ person.email }}</li>
-                    </ul>
-                    </li>
-                {% endfor %}
-                </ol>
-        {% else %}
-            <p>No users found.</p>
-        {% endif %}
+    <div class='container'>
+        <div class='jumbotron'>
+            <h1>Hi, welcome to django level three</h1>
+            <h2><a href="{% url 'index' %}">Return Home</a></h2>
+        </div>
+        <div class='container'>
+            <h1>Please sign up here:</h1> 
+            <form method="POST">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </div>
     </div>
 </body>
 </html>

@@ -6,29 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Models Test</title>
     <link rel="stylesheet" href="{% static "first_app/files/main.css" %}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
 </head>
 <body>
-    <h1>Hi, welcome to django level two</h1>
-    <h2>Here are your access records</h2>
-
-    <div class="djtwo">
-        {% if access_records %} 
-            <table>
-                <thead>
-                <th>Site Name</th>
-                <th>Date Accessed</th>
-                </thead>
-
-                {% for acc in access_records %}
-                    <tr>
-                        <td>{{ acc.name }}</td>
-                        <td>{{ acc.date }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
-        {% else %}
-            <p>No access records found.</p>
-        {% endif %}
+<div class='container'>
+    <div class='jumbotron'>
+        <h1>Hi, welcome to django level two</h1>
+        <h2><a href="{% url 'users' %}">Fill out the form!</a></h2>
+        <h2>Here are your access records</h2>
     </div>
+    <div class='container mb-2'>
+        <div class="djtwo">
+            {% if access_records %} 
+                <table>
+                    <thead>
+                    <th>Site Name</th>
+                    <th>Date Accessed</th>
+                    </thead>
+
+                    {% for acc in access_records %}
+                        <tr>
+                            <td>{{ acc.name }}</td>
+                            <td>{{ acc.date }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No access records found.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
 </body>
 </html>
