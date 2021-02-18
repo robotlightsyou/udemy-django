@@ -1,6 +1,6 @@
 {% extends 'basicapp/base.html' %}
 {% block title %}
-    <title>index,html</title>
+    <title>index.html</title>
 {% endblock title %}
 
 {% block content %}
@@ -14,5 +14,7 @@
             <h2>Click here for some other page</h2>
         </a>
     </div>
+    {{ text|title }}
+    {{ number|add:"99"}}
 </div>
 {% endblock content %}
