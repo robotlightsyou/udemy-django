@@ -1,3 +1,4 @@
 *.sqlite3
 **/settings.py
-**/static/first_app/images/*
+# **/static/first_app/images/*
+**/images/*

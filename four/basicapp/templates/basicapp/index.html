@@ -1,0 +1,20 @@
+{% extends 'basicapp/base.html' %}
+{% block title %}
+    <title>index.html</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>This is from block content</h1>
+        <a href="{% url 'relative' %}">
+            <h2>Click here for relative links</h2>
+        </a>
+        <a href="{% url 'other' %}">
+            <h2>Click here for some other page</h2>
+        </a>
+    </div>
+    {{ text|title }}
+    {{ number|add:"99"}}
+</div>
+{% endblock content %}
