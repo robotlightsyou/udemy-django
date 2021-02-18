@@ -18,7 +18,40 @@
 
 </head>
 <body>
-   {% block content %} 
-   {% endblock content %}
+{% comment %} <nav class="navbar navbar-default navbar-static-top">
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link brand" href="{% url 'index' %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'other' %}">Other</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href=""{% url 'relative' %}>Relative</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+{% endcomment %}
+<nav class="navbar navbar-default navbar-static-top"> 
+    <!-- <div class="container"> -->
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link brand" href="{% url 'index' %}" >Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'other' %}" class="nav-link">Other</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'relative' %}" class="nav-link">Relative</a>
+        </li>
+    </ul>
+        <!-- </div> -->
+    </nav>
+    <div class='container'>
+        {% block content %} 
+        {% endblock content %}
+    </div>
 </body>
 </html>
