@@ -1,0 +1,12 @@
+{% extends 'basicapp/base.html' %}
+
+{% block title %}
+    <title>Relative links</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>This page is for relative links</h1>
+    <a href="{% url 'index' %}">
+        <h2>Return Home</h2>
+    </a>
+{% endblock content%}
