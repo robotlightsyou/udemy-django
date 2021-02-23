@@ -1,5 +1,10 @@
 from django.shortcuts import render
 from .forms import UserForm, UserProfileInfoForm
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def index(request):
@@ -35,5 +40,31 @@ def register(request):
     context_dict = {'user_form': user_form, 'profile_form': profile_form, 'registered': registered}
     return render(request, 'basicapp/register.html', context_dict)
 
-def login(request):
-    return render(request, 'basicapp/login.html')
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+            else:
+                return HttpResponse("ACCOUNT NOT ACTIVE")
+        else:
+            print("someone tried to login and failed")
+            print(username)
+            return HttpResponse("Invalid login details")
+    else:
+        return render(request, 'basicapp/login.html')
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
+
+# def login(request):
+#     return render(request, 'basicapp/login.html')
