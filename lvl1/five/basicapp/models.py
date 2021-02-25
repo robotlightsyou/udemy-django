@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 
 class UserProfileStuff(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     portfolio_site = models.URLField(blank=True)
 
@@ -12,5 +11,4 @@ class UserProfileStuff(models.Model):
     def __str__(self):
         return self.user.username
     
-
     
