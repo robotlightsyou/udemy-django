@@ -136,5 +136,6 @@ STATIC_URL = '/static/'
 
 LOGIN_URL = '/basicapp/login.html'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
