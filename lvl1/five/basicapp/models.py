@@ -6,8 +6,8 @@ class UserProfileStuff(models.Model):
 
     portfolio_site = models.URLField(blank=True)
 
-    profile_pic = models.ImageField(default='default.jpg', upload_to='profile_pics', blank=True)
-
+    # profile_pic = models.ImageField(default='default.jpg', upload_to='profile_pics', blank=True)
+    profile_pic = models.ImageField(upload_to='profile_pics')
     def __str__(self):
         return self.user.username
     
