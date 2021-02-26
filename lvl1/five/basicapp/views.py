@@ -25,9 +25,17 @@ def register(request):
 
             profile = profile_form.save(commit=False)
             profile.user = user
+            print('looking for profile pic')
+            # print(request.FILES.getlist())
+            print(request.FILES.dict())
 
+            # if 'profile_pic' in request.FILES:
+            #     profile.profile_pic = request.FILES['profile_pic'] 
             if 'profile_pic' in request.FILES:
-                profile.profile_pic = request.FILES['profile_pic'] 
+                print('found it')
+                # If yes, then grab it from the POST form reply
+                profile.profile_pic = request.FILES['profile_pic']
+
            
             profile.save()
             registered = True
