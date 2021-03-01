@@ -27,8 +27,9 @@ def register(request):
             profile.user = user
 
             if 'profile_pic' in request.FILES:
-                profile.profile_pic = request.FILES['profile_pic'] 
-            
+                profile.profile_pic = request.FILES['profile_pic']
+
+           
             profile.save()
             registered = True
         else:
