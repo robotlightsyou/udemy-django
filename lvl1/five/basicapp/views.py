@@ -67,6 +67,5 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
-# def login(request):
-#     return render(request, 'basicapp/login.html')
-
+def login(request):
+    return render(request, 'basicapp/login.html')
