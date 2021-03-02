@@ -1,0 +1,20 @@
+{% extends 'basicapp/basicbase.html' %}
+
+{% block title %}
+    <title>Create School</title>
+{% endblock title %}
+
+{% block content %}
+    {% if not form.instance.pk %}
+    Create School
+    {% else %}
+    Update School
+    {% endif %}
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+
+{% endblock content %}
