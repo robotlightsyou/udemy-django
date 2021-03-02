@@ -14,4 +14,9 @@
         {% endfor %}
         
     </div>
+    <div class="container">
+        <a class="btn btn-warning" href="{% url 'update' pk=school_detail.pk %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'delete' pk=school_detail.pk %}">Delete</a>
+    </div>
+        
 {% endblock content %}
