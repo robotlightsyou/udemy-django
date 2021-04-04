@@ -5,7 +5,9 @@
 {% endblock title %}
 
 {% block content %}
-    <h1 class="posttitle loader">{{ post.title }}</h1>
+    <h1 class="posttitle">{{ post.title }}</h1>
+    {% comment %} <h1 class="posttitle loader" style="opacity:0">{{ post.title }}</h1> {% endcomment %}
+    {% comment %} <h1 class="posttitle loader" style="background: rgba(76, 175, 80, 0.1)">{{ post.title }}</h1> {% endcomment %}
     {% if post.pub_date %}
         <div class="date postdate">{{ post.pub_date }}</div>
     {% else %}
